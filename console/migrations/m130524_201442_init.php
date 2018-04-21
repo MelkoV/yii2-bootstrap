@@ -54,7 +54,7 @@ class m130524_201442_init extends Migration
         $model->username = "admin";
         $model->name = "Admin";
         $model->email = "admin@local.host";
-        $model->setPassword("jndfuf88");
+        $model->setPassword("admin");
         $model->generateAuthKey();
         if ($model->save(false)) {
             $model->assign(App::ROLE_ADMIN);
