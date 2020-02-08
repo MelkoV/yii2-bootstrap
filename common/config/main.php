@@ -26,6 +26,10 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages'
                 ],
+                'app' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages'
+                ],
             ],
         ],
         /*'i18n' => [
@@ -41,25 +45,6 @@ return [
                 ],
             ],
         ],*/
-		'log' => [
-            'targets' => [
-                [
-//                    'traceLevel' => YII_DEBUG ? 3 : 0,
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-                [
-                    'class' => 'yii\log\EmailTarget',
-                    'levels' => ['error'],
-//                    'categories' => ['yii\db\*'],
-                    "except" => ['yii\web*'],
-                    'message' => [
-                        'from' => ['robot@example.com'],
-                        'to' => ['me@example.com'],
-                        'subject' => 'ERROR on example.com',
-                    ],
-                ],
-            ],
-        ],
+
     ],
 ];
