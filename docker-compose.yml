@@ -1,0 +1,42 @@
+version: '2.1'
+
+services:
+
+  postgres:
+    image: postgres:11
+    ports:
+      - "${DB_EXTERNAL_PORT}:5432"
+    environment:
+      POSTGRES_USER: "${DB_USERNAME}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+      POSTGRES_DB: "${DB_DB}"
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - ./:/app
+      - "phpsocket:/var/run"
+    depends_on:
+      - postgres
+    environment:
+      - DB_DSN
+      - DB_USERNAME
+      - DB_PASSWORD
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "${NGINX_PORT_FRONTEND}:80"
+      - "${NGINX_PORT_BACKEND}:81"
+    volumes:
+      - "phpsocket:/var/run"
+      - ./:/app
+    depends_on:
+      - php
+
+volumes:
+  phpsocket:
