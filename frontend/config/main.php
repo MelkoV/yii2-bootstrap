@@ -20,7 +20,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
 //            'class' => 'melkov\tools\LangUrlManager',
-            'class' => 'frontend\components\UrlManager',
+//            'class' => 'frontend\components\UrlManager',
             'rules' => [
                 '/' => 'site/index',
 //                '/sitemap.xml' => 'seo/sitemap',
