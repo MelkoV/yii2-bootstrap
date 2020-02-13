@@ -134,5 +134,8 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
+# local env
+.env
+
 
 # End of https://www.gitignore.io/api/osx,yii2,phpstorm
