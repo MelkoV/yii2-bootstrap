@@ -60,6 +60,11 @@ $noDev = $env == 'prod' ? ' --no-dev' : '';
 
 if (!$noComposer) {
     echo 'Run ' . $composer . PHP_EOL;
+	if ($env == 'local') {
+        echo 'Install composer plugin prestissimo' . PHP_EOL;
+        exec($composer . ' global require hirak/prestissimo');
+    }
+
     exec($composer . ' install' . $noDev);
     if ($env == 'prod') {
         echo 'Run composer dump autoload' . PHP_EOL;
